@@ -1,5 +1,9 @@
 import Image from 'next/image'
 import styles from './contact.module.css'
+import dynamic from 'next/dynamic'
+// import HydrationTest from '@/components/hydrationTest'
+
+const HydrationTestNoSSR = dynamic(() => import("@/components/hydrationTest"), { ssr: false })
 
 const ContactPage = () => {
     return (
@@ -8,6 +12,7 @@ const ContactPage = () => {
                 <Image src="/contact.png" alt='' fill />
             </div>
             <div className={styles.formContainer}>
+                {/* <HydrationTestNoSSR /> */}
                 <form action="" className={styles.form}>
                     <input type="text" placeholder="Name and Surname" />
                     <input type="text" placeholder="Email Address" />
